@@ -1,2 +1,2 @@
 # KatFC
-Flight Control for motor control done using KatBot project.
+Flight Control software for motors run with KatBot.
