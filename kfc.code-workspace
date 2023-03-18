@@ -1,0 +1,46 @@
+{
+	"folders": [
+		{
+			"path": "."
+		}
+	],
+	"settings": {
+		"clang-format.executable": "/usr/bin/clang-format",
+		"editor.formatOnSave": true,
+		"clang-format.fallbackStyle": "Google",
+		"C_Cpp.clang_format_style": "file",
+		"cmake.buildDirectory": "${workspaceFolder}/build",
+		"cmake.sourceDirectory": "${workspaceFolder}/flightControl",
+		"cmake.generator": "Unix Makefiles",
+		"cmake.parallelJobs": 1,
+		"cmake.additionalKits": [
+			"${workspaceFolder}/.vscode/cmake-kits.json"
+		],
+		"cmake.configureEnvironment": {
+			"BOARD": "STM32H750B-DK",
+			"TP_DIR": "${workspaceFolder}/thirdParty",
+			"HARDWARE_DIR": "${workspaceFolder}/hardware",
+		},
+		"cmake.configureArgs": [
+			"-DCMAKE_TOOLCHAIN_FILE=../cmake/tools/toolchain/stm32-h750bdk-none-eabi.cmake",
+			"-DCMAKE_EXPORT_COMPILE_COMMANDS=1"
+		],
+		"cmake.autoSelectActiveFolder": true,
+		"cmake.configureOnEdit": false,
+		"cmake.configureOnOpen": false,
+		"doxdocgen.c.firstLine": "/**",
+		"doxdocgen.c.commentPrefix": "",
+		"doxdocgen.cpp.tparamTemplate": "@tparam {param} ",
+		"doxdocgen.file.fileTemplate": "@file {name}",
+		"doxdocgen.file.versionTag": "@version 0.1",
+		"doxdocgen.generic.authorTag": "@author {author} ({email})",
+		"doxdocgen.generic.briefTemplate": "@brief {text}",
+		"doxdocgen.generic.dateTemplate": "@date {date}",
+		"doxdocgen.generic.paramTemplate": "@param {param} ",
+		"doxdocgen.generic.returnTemplate": "@return {type} ",
+		"doxdocgen.generic.commandSuggestionAddPrefix": true,
+		"doxdocgen.generic.authorName": "Vijay Katoch",
+		"doxdocgen.c.lastLine": "*/",
+		"C_Cpp.autoAddFileAssociations": false
+	}
+}
