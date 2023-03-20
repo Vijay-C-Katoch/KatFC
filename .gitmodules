@@ -1,0 +1,8 @@
+[submodule "cmake/tools"]
+	path = cmake/tools
+	url = git@github.com:Vijay-C-Katoch/cmake-tools.git
+	branch = framework-stm32cubeh7
+[submodule "thirdParty/framework-stm32cubeh7"]
+	path = thirdParty/framework-stm32cubeh7
+	url = https://github.com/STMicroelectronics/STM32CubeH7.git
+	branch = master
