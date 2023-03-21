@@ -32,7 +32,6 @@ target_link_libraries(${CMAKE_PROJECT_NAME}
 # Linker options for executable
 target_link_options(${CMAKE_PROJECT_NAME} PUBLIC
 -T${HARDWARE_DIR}/boards/stm32/STM32H750B-DK/STM32H750XBHX_FLASH.ld
--T${HARDWARE_DIR}/boards/stm32/STM32H750B-DK/STM32H750XBHX_RAM.ld
 -specs=nosys.specs
 -specs=nano.specs
 -static 
