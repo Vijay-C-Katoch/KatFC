@@ -1,0 +1,29 @@
+{
+    "configurations": [
+        {
+            "name": "STM32 H7",
+            "includePath": [
+                "${workspaceFolder}/**"
+            ],
+            "defines": [
+                "_DEBUG",
+                "UNICODE",
+                "_UNICODE",
+                "STM32H7xx",
+                "STM32H750xx"
+            ],
+            "compilerPath": "/usr/bin/arm-none-eabi-gcc",
+            "cStandard": "c11",
+            "cppStandard": "c++17",
+            "intelliSenseMode": "gcc-arm",
+            "configurationProvider": "ms-vscode.cmake-tools",
+            "compilerArgs": [
+                "-mcpu=cortex-m7",
+                "-mfpu=fpv4-sp-d16",
+                "-mfloat-abi=hard ",
+                "-mthumb"
+            ]
+        }
+    ],
+    "version": 4
+}
