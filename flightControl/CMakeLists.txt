@@ -24,12 +24,12 @@ message(STATUS "CMAKE_SYSTEM_PROCESSOR is ${CMAKE_SYSTEM_PROCESSOR}")
 
 # update compiler flag with FORCE, as are already set in toolchain cmake
 set(CMAKE_C_FLAGS 
-  "${CMAKE_C_FLAGS} -Os -ffunction-sections -fdata-sections \
+  "${CMAKE_C_FLAGS} -O0 -ffunction-sections -fdata-sections  \
   --param max-inline-insns-single=500" 
   CACHE STRING "" FORCE
   )
 set(CMAKE_CXX_FLAGS 
-  "${CMAKE_CXX_FLAGS} -Os -fno-threadsafe-statics -fno-rtti -fno-exceptions \
+  "${CMAKE_CXX_FLAGS} -O0 -fno-threadsafe-statics -fno-rtti -fno-exceptions \
   -fno-use-cxa-atexit -ffunction-sections -fdata-sections \
   --param max-inline-insns-single=500" 
   CACHE STRING "" FORCE)

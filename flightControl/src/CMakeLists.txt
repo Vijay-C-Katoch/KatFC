@@ -3,7 +3,7 @@
 # -----------------------------------------------------------------------------
 
 set(SRC_APP
-    ${CMAKE_CURRENT_SOURCE_DIR}/app/main.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/app/main.c
 )
 
 set(CORE_INCLUDE_DIRS

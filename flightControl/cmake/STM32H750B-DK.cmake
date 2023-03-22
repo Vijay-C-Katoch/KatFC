@@ -26,7 +26,6 @@ target_link_libraries(${CMAKE_PROJECT_NAME} framework-stm32cubeh7)
 target_link_libraries(${CMAKE_PROJECT_NAME}
   -lc
   -lm
-  -lnosys
 )
 
 # Linker options for executable
@@ -36,6 +35,7 @@ target_link_options(${CMAKE_PROJECT_NAME} PUBLIC
 -specs=nano.specs
 -static 
 -Wl,--gc-sections 
+-Wl,--no-warn-rwx-segment
 -Wl,-Map=${CMAKE_PROJECT_NAME}.map
 -Wl,--print-memory-usage
 )
