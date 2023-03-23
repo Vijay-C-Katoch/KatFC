@@ -1,6 +1,6 @@
 [
     {
-        "name": "arm-none-eabi-gcc 11.2.1",
+        "name": "arm-none-eabi-gcc 12.2.1",
         "compilers": {
             "C": "/usr/bin/arm-none-eabi-gcc",
             "CXX": "/usr/bin/arm-none-eabi-g++"
