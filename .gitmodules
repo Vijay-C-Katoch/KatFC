@@ -6,3 +6,7 @@
 	path = thirdParty/framework-stm32cubeh7
 	url = https://github.com/STMicroelectronics/STM32CubeH7.git
 	branch = master
+[submodule "thirdParty/CANopen"]
+	path = thirdParty/CANopen
+	url = https://github.com/CANopenNode/CanOpenSTM32.git
+	branch = master
