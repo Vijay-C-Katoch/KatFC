@@ -15,6 +15,7 @@
   *
   ******************************************************************************
   */
+ #define ENABLE_CANOPEN_DEMO 0
 /* USER CODE END Header */
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
@@ -22,7 +23,9 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
+#if ENABLE_CANOPEN_DEMO 
 #include "CO_app_STM32.h"
+#endif //ENABLE_CANOPEN_DEMO 
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -134,9 +137,11 @@ static void MX_USART1_UART_Init(void);
 /* Timer interrupt function executes every 1 ms */
 void
 HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef* htim) {
+#if ENABLE_CANOPEN_DEMO 
     if (htim == canopenNodeSTM32->timerHandle) {
         canopen_app_interrupt();
     }
+#endif //ENABLE_CANOPEN_DEMO 
 }
 /* USER CODE END 0 */
 
@@ -193,6 +198,7 @@ int main(void)
   MX_TIM17_Init();
   MX_USART1_UART_Init();
   /* USER CODE BEGIN 2 */
+#if ENABLE_CANOPEN_DEMO 
   CANopenNodeSTM32 canOpenNodeSTM32;
   canOpenNodeSTM32.CANHandle = &hfdcan1;
   canOpenNodeSTM32.HWInitFunction = MX_FDCAN1_Init;
@@ -200,13 +206,16 @@ int main(void)
   canOpenNodeSTM32.desiredNodeID = 24;
   canOpenNodeSTM32.baudrate = 125;
   canopen_app_init(&canOpenNodeSTM32);
+#endif // ENABLE_CANOPEN_DEMO 
   /* USER CODE END 2 */
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   while (1)
   {
+#if ENABLE_CANOPEN_DEMO 
 	  canopen_app_process();
+#endif // #if ENABLE_CANOPEN_DEMO 
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
