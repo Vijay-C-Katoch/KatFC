@@ -22,7 +22,7 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-
+#include "CO_app_STM32.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -131,7 +131,13 @@ static void MX_USART1_UART_Init(void);
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
-
+/* Timer interrupt function executes every 1 ms */
+void
+HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef* htim) {
+    if (htim == canopenNodeSTM32->timerHandle) {
+        canopen_app_interrupt();
+    }
+}
 /* USER CODE END 0 */
 
 /**
@@ -187,13 +193,20 @@ int main(void)
   MX_TIM17_Init();
   MX_USART1_UART_Init();
   /* USER CODE BEGIN 2 */
-
+  CANopenNodeSTM32 canOpenNodeSTM32;
+  canOpenNodeSTM32.CANHandle = &hfdcan1;
+  canOpenNodeSTM32.HWInitFunction = MX_FDCAN1_Init;
+  canOpenNodeSTM32.timerHandle = &htim17;
+  canOpenNodeSTM32.desiredNodeID = 24;
+  canOpenNodeSTM32.baudrate = 125;
+  canopen_app_init(&canOpenNodeSTM32);
   /* USER CODE END 2 */
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   while (1)
   {
+	  canopen_app_process();
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
