@@ -115,16 +115,12 @@ void Error_Handler(void);
 #define SDIO1_D6_GPIO_Port GPIOC
 #define audio_Int_Pin GPIO_PIN_7
 #define audio_Int_GPIO_Port GPIOG
-#define LD2_Pin GPIO_PIN_13
-#define LD2_GPIO_Port GPIOI
 #define LCD_INT_Pin GPIO_PIN_2
 #define LCD_INT_GPIO_Port GPIOG
 #define OSC_OUT_Pin GPIO_PIN_1
 #define OSC_OUT_GPIO_Port GPIOH
 #define OSC_IN_Pin GPIO_PIN_0
 #define OSC_IN_GPIO_Port GPIOH
-#define LCD_BL_Pin GPIO_PIN_0
-#define LCD_BL_GPIO_Port GPIOK
 #define MII_MDC_Pin GPIO_PIN_1
 #define MII_MDC_GPIO_Port GPIOC
 #define MII_TXD2_Pin GPIO_PIN_2
