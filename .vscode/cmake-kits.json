@@ -1,7 +1,6 @@
 [
     {
         "name": "arm-none-eabi-gcc 12.2.1",
-        "toolchainFile": "../cmake/tools/toolchain/stm32-h750-none-eabi.cmake",
         "compilers": {
             "C": "/usr/bin/arm-none-eabi-gcc",
             "CXX": "/usr/bin/arm-none-eabi-g++"
