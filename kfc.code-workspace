@@ -22,7 +22,7 @@
 			"HARDWARE_DIR": "${workspaceFolder}/hardware",
 		},
 		"cmake.configureArgs": [
-			"-DCMAKE_TOOLCHAIN_FILE=../cmake/tools/toolchain/stm32-h750bdk-none-eabi.cmake",
+			"-DCMAKE_TOOLCHAIN_FILE=../cmake/tools/toolchain/stm32-h750-none-eabi.cmake",
 			"-DCMAKE_EXPORT_COMPILE_COMMANDS=1"
 		],
 		"cmake.autoSelectActiveFolder": true,
