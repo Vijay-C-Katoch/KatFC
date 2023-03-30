@@ -187,7 +187,7 @@ int main(void)
   MX_LTDC_Init();
   MX_QUADSPI_Init();
   MX_SAI2_Init();
-  MX_SDMMC1_SD_Init();
+  // MX_SDMMC1_SD_Init();
   MX_SPI2_Init();
   MX_USART3_UART_Init();
   MX_USB_OTG_FS_PCD_Init();
