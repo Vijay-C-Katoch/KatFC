@@ -14,10 +14,7 @@ include(boards/stm32/${BOARD})
 include(CANopen-STM32H7)
   
 # Link thirdparty libraries
-target_link_libraries(${CMAKE_PROJECT_NAME} 
-  framework-stm32cubeh7
-  CANopen
-)
+target_link_libraries(${CMAKE_PROJECT_NAME} CANopen)
 
 # Executable linker flags and options
 target_link_libraries(${CMAKE_PROJECT_NAME}

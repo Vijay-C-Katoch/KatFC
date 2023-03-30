@@ -42,6 +42,8 @@ file(GLOB_RECURSE SOURCE_FILES CONFIGURE_DEPENDS
 "${TP_DIR}/CANopen/CANopenNode/storage/CO_storage.c"
 "${TP_DIR}/CANopen/CANopenNode/CANopen.c"
 
+"${TP_DIR}/CANopen/CANopenNode_STM32/CO_app_STM32.c"
+
 )
 
 target_sources(CANopen PUBLIC 

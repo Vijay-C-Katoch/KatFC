@@ -43,24 +43,7 @@ configure_file (
 
 # Add platform-dependent targets early, so they can be configured by
 # platform
-#add_library(${CMAKE_PROJECT_NAME}  "")
 add_executable(${CMAKE_PROJECT_NAME}  "")
-
-
-# Define headers for this library. PUBLIC headers are used for
-# compiling the library, and will be added to consumers' build
-# paths. BUILD_INTERFACE refer build tree and used for building
-# project. INSTALL_INTERFACE refers install tree install(EXPORT)
-# use things listed in install interface
-target_include_directories(${CMAKE_PROJECT_NAME} 
-  #PUBLIC
-  #$<BUILD_INTERFACE:${XILINX_DEMO_SOURCE_DIR}>/src
-  #$<BUILD_INTERFACE:${XILINX_DEMO_BINARY_DIR}/include>
-  #$<INSTALL_INTERFACE:include>
-  PRIVATE
-  ${KATFC_BINARY_DIR}/src/include
-  )
-
 
 # add directory to find sources in build tree
 add_subdirectory (src)
