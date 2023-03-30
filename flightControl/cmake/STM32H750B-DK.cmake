@@ -11,16 +11,10 @@ a particular board.
 include_guard()
 
 include(boards/stm32/${BOARD})
-
-# Include Thirdparty, Hardware and boards
-target_include_directories(${CMAKE_PROJECT_NAME} 
-  PUBLIC
-  $<BUILD_INTERFACE:${HARDWARE_DIR}/boards/stm32/STM32H750B-DK/Inc>
-  )
-
+include(CANopen-STM32H7)
   
 # Link thirdparty libraries
-target_link_libraries(${CMAKE_PROJECT_NAME} framework-stm32cubeh7)
+target_link_libraries(${CMAKE_PROJECT_NAME} CANopen)
 
 # Executable linker flags and options
 target_link_libraries(${CMAKE_PROJECT_NAME}

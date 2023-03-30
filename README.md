@@ -2,8 +2,8 @@
 Flight Control software for motors run with KatBot.
 
 ## 1. Getting started
-On a Linux x86 machine. The build chain uses an ARM cross compiler     
-`sudo apt install gcc-arm-none-eabi`
+Download and install latest toolchain from arm for target
+`AArch32 bare-metal target (arm-none-eabi)`
 
 ## 2. Download and compile KatFC     
 Clone the source:     
