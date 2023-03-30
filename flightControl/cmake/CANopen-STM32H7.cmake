@@ -47,3 +47,8 @@ file(GLOB_RECURSE SOURCE_FILES CONFIGURE_DEPENDS
 target_sources(CANopen PUBLIC 
 ${SOURCE_FILES} 
 )
+
+# Link thirdparty libraries
+target_link_libraries(CANopen
+  framework-stm32cubeh7
+)
