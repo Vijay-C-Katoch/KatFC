@@ -13,3 +13,5 @@
 [submodule "thirdParty/middlewares/stm32_mw_freertos"]
 	path = thirdParty/middlewares/stm32_mw_freertos
 	url = https://github.com/STMicroelectronics/stm32_mw_freertos.git
+	branch = master
+	
