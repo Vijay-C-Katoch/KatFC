@@ -18,13 +18,26 @@ target_compile_options(FreeRTOS-STM32 PUBLIC
 # include directories from STM32CubeH7 MCU Firmware repo
 target_include_directories(FreeRTOS-STM32 PUBLIC
 
-${TP_DIR}/CANopen/CANopenNode
-${TP_DIR}/CANopen/CANopenNode_STM32
+${TP_DIR}/middlewares/stm32_mw_freertos/Source/CMSIS_RTOS_V2
+${TP_DIR}/middlewares/stm32_mw_freertos/Source/include
+${TP_DIR}/middlewares/stm32_mw_freertos/Source/portable/GCC/ARM_CM4F
+
 )
 
 file(GLOB_RECURSE SOURCE_FILES CONFIGURE_DEPENDS 
 
-"${TP_DIR}/CANopen/CANopenNode_STM32/CO_driver_STM32.c"
+"${TP_DIR}/middlewares/stm32_mw_freertos/Source/CMSIS_RTOS_V2/cmsis_os2.c"
+
+"${TP_DIR}/middlewares/stm32_mw_freertos/Source/croutine.c"      
+"${TP_DIR}/middlewares/stm32_mw_freertos/Source/stream_buffer.c"
+"${TP_DIR}/middlewares/stm32_mw_freertos/Source/event_groups.c"  
+"${TP_DIR}/middlewares/stm32_mw_freertos/Source/tasks.c"
+"${TP_DIR}/middlewares/stm32_mw_freertos/Source/list.c"          
+"${TP_DIR}/middlewares/stm32_mw_freertos/Source/timers.c"
+"${TP_DIR}/middlewares/stm32_mw_freertos/Source/queue.c"
+
+"${TP_DIR}/middlewares/stm32_mw_freertos/Source/portable/GCC/ARM_CM4F/port.c"
+"${TP_DIR}/middlewares/stm32_mw_freertos/Source/portable/MemMang/heap_4.c" 
 
 )
 
@@ -33,6 +46,6 @@ ${SOURCE_FILES}
 )
 
 # Link thirdparty libraries
-target_link_libraries(FreeRTOS-STM32
-  framework-stm32cubeh7
-)
+# target_link_libraries(FreeRTOS-STM32
+#   framework-stm32cubeh7
+# )
