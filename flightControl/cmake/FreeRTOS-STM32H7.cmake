@@ -46,6 +46,6 @@ ${SOURCE_FILES}
 )
 
 # Link thirdparty libraries
-# target_link_libraries(FreeRTOS-STM32
-#   framework-stm32cubeh7
-# )
+target_link_libraries(FreeRTOS-STM32
+  framework-stm32cubeh7
+)
