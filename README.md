@@ -2,7 +2,7 @@
 Flight Control software for motors run with KatBot.
 
 ## 1. Getting started
-Download and install latest toolchain from arm for target
+Download and install latest toolchain from arm for target    
 `AArch32 bare-metal target (arm-none-eabi)`
 
 ## 2. Download and compile KatFC     
