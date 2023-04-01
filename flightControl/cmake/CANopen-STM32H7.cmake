@@ -1,10 +1,9 @@
 #[=======================================================================[.rst:
-STM32H750B-DK discovery board static library creation
+CanOpen static library creation for STM32
 ----------------------------------------------------
 
 This cmake script is for building and creating static library from
-STM32CubeH7 MCU Firmware Package source for STM32H750B-DK discovery 
-board from ST Microelectronics.
+thirdParty CanOpen source for ST Microelectronics based boards.
 
 #]=======================================================================]
 
