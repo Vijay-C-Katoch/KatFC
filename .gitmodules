@@ -10,3 +10,6 @@
 	path = thirdParty/CANopen
 	url = https://github.com/CANopenNode/CanOpenSTM32.git
 	branch = master
+[submodule "thirdParty/middlewares/stm32_mw_freertos"]
+	path = thirdParty/middlewares/stm32_mw_freertos
+	url = https://github.com/STMicroelectronics/stm32_mw_freertos.git
