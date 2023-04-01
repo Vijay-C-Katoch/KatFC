@@ -5,8 +5,6 @@
 set(SRC_APP
     ${CMAKE_CURRENT_SOURCE_DIR}/app/main.c
     ${CMAKE_CURRENT_SOURCE_DIR}/app/app_freertos.c
-    ${CMAKE_CURRENT_SOURCE_DIR}/app/fdcan.c
-    ${CMAKE_CURRENT_SOURCE_DIR}/app/tim.c
 )
 
 set(CORE_INCLUDE_DIRS
