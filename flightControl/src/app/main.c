@@ -15,7 +15,7 @@
  *
  ******************************************************************************
  */
-#define ENABLE_CANOPEN_DEMO 0
+#define ENABLE_CANOPEN_DEMO 1
 #define ENABLE_FREE_RTOS 0
 /* USER CODE END Header */
 /* Includes ------------------------------------------------------------------*/
@@ -128,6 +128,13 @@ int main(void)
   MX_FDCAN1_Init();
   MX_TIM17_Init();
   /* USER CODE BEGIN 2 */
+  CANopenNodeSTM32 canOpenNodeSTM32;
+  canOpenNodeSTM32.CANHandle = &hfdcan1;
+  canOpenNodeSTM32.HWInitFunction = MX_FDCAN1_Init;
+  canOpenNodeSTM32.timerHandle = &htim17;
+  canOpenNodeSTM32.desiredNodeID = 24;
+  canOpenNodeSTM32.baudrate = 125;
+  canopen_app_init(&canOpenNodeSTM32);
 
   /* USER CODE END 2 */
 #if ENABLE_FREE_RTOS
