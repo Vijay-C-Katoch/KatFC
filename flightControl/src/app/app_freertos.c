@@ -28,6 +28,7 @@
 #include "CO_app_STM32.h"
 #include "fdcan.h"
 #include "tim.h"
+#include "app_freertos.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -71,8 +72,6 @@ const osThreadAttr_t canopen_attributes = {
 
 void StartDefaultTask(void *argument);
 void canopen_task(void *argument);
-
-void MX_FREERTOS_Init(void); /* (MISRA C 2004 rule 8.1) */
 
 /**
   * @brief  FreeRTOS initialization
