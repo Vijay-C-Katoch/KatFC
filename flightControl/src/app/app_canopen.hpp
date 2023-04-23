@@ -12,6 +12,8 @@ class CanOpenAO : public FrActive {
 
   virtual void Dispatch(KFC::Event const *const e) override;
 
+  void TestEventSend();
+
  private:
   FrTimeEvent m_timeEvent;
 };

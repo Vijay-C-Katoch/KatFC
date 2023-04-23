@@ -126,15 +126,10 @@ int main(void) {
   CanOpenAO co(1U, co_stack, sizeof(co_stack), co_queue,
                sizeof(co_queue) / sizeof(co_queue[0]), 0);
 
-  std::uint16_t i = 0;
-  while (1) {
-    /* USER CODE END WHILE */
-    i++;
-
-    if (10000 == i) {
-      co.Dispatch(0);
-    }
-    /* USER CODE BEGIN 3 */
-  }
+  vTaskStartScheduler(); /* start the FreeRTOS scheduler... */
+  /* Should not reach here. */
+  for (;;)
+    ;
+  return 0; /* NOTE: the scheduler does NOT return */
   /* USER CODE END 3 */
 }
