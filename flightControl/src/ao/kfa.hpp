@@ -25,6 +25,7 @@ class Event {
 class Active {
  public:
   virtual void Dispatch(Event const* const e) = 0;
+  virtual void Post(KFC::Event const* const e) = 0;
 };
 
 class TimerEvent : public Event {

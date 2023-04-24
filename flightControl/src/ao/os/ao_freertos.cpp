@@ -59,8 +59,8 @@ void FrActive::PostFromISR(KFC::Event const *const e,
 
 // void FrActive::Dispatch(KFC::Event const *const e) { (void)e; }
 
-FrTimeEvent::FrTimeEvent(KFC::Signal s, FrActive *act)
-    : KFC::TimerEvent(s), ao(act) {
+FrTimeEvent::FrTimeEvent(KFC::Signal s, KFC::Active *act, TimerType_t typ)
+    : KFC::TimerEvent(s), ao(act), type(typ) {
   /* Create a timer object */
   timer =
       xTimerCreateStatic("TEv", 1U, type, this, TimeEvent_callback, &timer_cb);

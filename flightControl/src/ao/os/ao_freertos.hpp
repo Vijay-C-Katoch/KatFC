@@ -33,7 +33,7 @@ class FrActive : public KFC::Active {
            std::uint32_t taskStackSize, KFC::Event **qStorage,
            std::uint32_t qLen, void *const parameters);
 
-  void Post(KFC::Event const *const e);
+  void Post(KFC::Event const *const e) override;
 
   void PostFromISR(KFC::Event const *const e,
                    BaseType_t *pxHigherPriorityTaskWoken);
@@ -57,7 +57,7 @@ class FrActive : public KFC::Active {
 
 class FrTimeEvent : public KFC::TimerEvent {
  public:
-  FrTimeEvent(KFC::Signal s, FrActive *act);
+  FrTimeEvent(KFC::Signal s, KFC::Active *act, TimerType_t typ);
 
   virtual void Arm(uint32_t ms) override;
 
@@ -67,9 +67,9 @@ class FrTimeEvent : public KFC::TimerEvent {
   static void TimeEvent_callback(TimerHandle_t xTimer);
 
  private:
-  FrActive *ao;        /**< Associated Active object */
-  TimerHandle_t timer; /**< timer handle */
+  KFC::Active *ao;     /**< Associated Active object */
   TimerType_t type;    /**< periodic or one-shot timer*/
+  TimerHandle_t timer; /**< timer handle */
 };
 
 #endif /* _FREERTOS_AO_H_ */

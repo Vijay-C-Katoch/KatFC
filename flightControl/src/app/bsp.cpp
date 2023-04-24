@@ -5,6 +5,35 @@
 #include "main.h"
 extern "C" {
 
+/* Function Prototype ======================================================*/
+void vApplicationIdleHook(void);
+void vApplicationStackOverflowHook(TaskHandle_t xTask, char *pcTaskName);
+void vApplicationGetIdleTaskMemory(StaticTask_t **ppxIdleTaskTCBBuffer,
+                                   StackType_t **ppxIdleTaskStackBuffer,
+                                   uint32_t *pulIdleTaskStackSize);
+void vApplicationGetTimerTaskMemory(StaticTask_t **ppxTimerTaskTCBBuffer,
+                                    StackType_t **ppxTimerTaskStackBuffer,
+                                    uint32_t *pulTimerTaskStackSize);
+
+/* Hooks ===================================================================*/
+/* Application hooks used in this project ==================================*/
+
+/*..........................................................................*/
+void vApplicationIdleHook(void) {
+#ifdef NDEBUG
+  /* Put the CPU and peripherals to the low-power mode.
+   * you might need to customize the clock management for your application,
+   * see the datasheet for your particular Cortex-M3 MCU.
+   */
+  __WFI(); /* Wait-For-Interrupt */
+#endif
+}
+/*..........................................................................*/
+void vApplicationStackOverflowHook(TaskHandle_t xTask, char *pcTaskName) {
+  (void)xTask;
+  (void)pcTaskName;
+  /* ERROR!!! */
+}
 /*..........................................................................*/
 /* configSUPPORT_STATIC_ALLOCATION is set to 1, so the application must
  * provide an implementation of vApplicationGetIdleTaskMemory() to provide

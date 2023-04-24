@@ -7,8 +7,7 @@
 void CanOpenAO::Dispatch(KFC::Event const *const e) {
   switch (e->sig) {
     case AOSignals::SIG_INIT: {
-      // m_timeEvent.Arm(10);
-      TestEventSend();
+      // TestEventSend();
       break;
     }
     case AppSignals::CO_TIMER: {
@@ -32,4 +31,13 @@ void CanOpenAO::TestEventSend() {
   for (uint8_t i = 0; i < 4; i++) {
     this->Post(&se);
   }
+}
+
+CanOpenAO::CanOpenAO(uint8_t taskPriority, void *taskStack,
+                     std::uint32_t taskStackSize, KFC::Event **qStorage,
+                     uint32_t qLen, void *const parameters)
+    : FrActive(taskPriority, taskStack, taskStackSize, qStorage, qLen,
+               parameters),
+      m_timeEvent(AppSignals::CO_TIMER, this, PERIODIC) {
+  m_timeEvent.Arm(10);
 }
