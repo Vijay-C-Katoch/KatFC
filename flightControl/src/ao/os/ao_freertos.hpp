@@ -49,10 +49,10 @@ class FrActive : public KFC::Active {
 
   static constexpr KFC::Event initEvt{SIG_INIT};
 
-  TaskHandle_t thread;   /**< private thread of active object */
-  StaticTask_t threadCB; /**< static allocated thread control block */
   QueueHandle_t queue;   /**< event queue */
   StaticQueue_t queueCB; /**< static allocated queue control block */
+  TaskHandle_t thread;   /**< private thread of active object */
+  StaticTask_t threadCB; /**< static allocated thread control block */
 };
 
 class FrTimeEvent : public KFC::TimerEvent {
@@ -63,13 +63,11 @@ class FrTimeEvent : public KFC::TimerEvent {
 
   virtual void Disarm() override;
 
-  StaticTimer_t timer_cb; /**< static allocated timer control block */
   static void TimeEvent_callback(TimerHandle_t xTimer);
 
  private:
-  KFC::Active *ao;     /**< Associated Active object */
-  TimerType_t type;    /**< periodic or one-shot timer*/
-  TimerHandle_t timer; /**< timer handle */
+  KFC::Active *ao;  /**< Associated Active object */
+  TimerType_t type; /**< periodic or one-shot timer*/
 };
 
 #endif /* _FREERTOS_AO_H_ */

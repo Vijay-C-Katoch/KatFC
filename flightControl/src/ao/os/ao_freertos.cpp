@@ -58,6 +58,8 @@ void FrActive::PostFromISR(KFC::Event const *const e,
 }
 
 // void FrActive::Dispatch(KFC::Event const *const e) { (void)e; }
+StaticTimer_t timer_cb; /**< static allocated timer control block */
+TimerHandle_t timer;    /**< timer handle */
 
 FrTimeEvent::FrTimeEvent(KFC::Signal s, KFC::Active *act, TimerType_t typ)
     : KFC::TimerEvent(s), ao(act), type(typ) {
@@ -111,5 +113,5 @@ void FrTimeEvent::Disarm() {
 void FrTimeEvent::TimeEvent_callback(TimerHandle_t xTimer) {
   const FrTimeEvent *const time =
       static_cast<FrTimeEvent *>(pvTimerGetTimerID(xTimer));
-  time->ao->Post(time);
+  time->ao->Post(time);  // Hard fault here
 }
