@@ -61,15 +61,14 @@ void FrActive::PostFromISR(KFC::Event const *const e,
 StaticTimer_t timer_cb; /**< static allocated timer control block */
 TimerHandle_t timer;    /**< timer handle */
 
-FrTimeEvent::FrTimeEvent(KFC::Signal s, KFC::Active *act, TimerType_t typ)
-    : KFC::TimerEvent(s), ao(act), type(typ) {
+FrTimer::FrTimer(KFC::Active *act, TimerType_t typ) : ao(act), type(typ) {
   /* Create a timer object */
-  timer = xTimerCreateStatic("TEv", 1U, type, this->ao, TimeEvent_callback,
-                             &timer_cb);
+  timer =
+      xTimerCreateStatic("TEv", 1U, type, this->ao, TimerCallback, &timer_cb);
   configASSERT(timer); /* timer must be created */
 }
 
-void FrTimeEvent::Arm(uint32_t ms) {
+void FrTimer::Arm(uint32_t ms) {
   BaseType_t status;
   TickType_t ticks;
   BaseType_t xHigherPriorityTaskWoken;
@@ -92,7 +91,7 @@ void FrTimeEvent::Arm(uint32_t ms) {
   }
 }
 
-void FrTimeEvent::Disarm() {
+void FrTimer::Disarm() {
   BaseType_t status;
   BaseType_t xHigherPriorityTaskWoken;
 
@@ -110,12 +109,8 @@ void FrTimeEvent::Disarm() {
 
 /*..........................................................................*/
 
-void FrTimeEvent::TimeEvent_callback(TimerHandle_t xTimer) {
-  // const FrTimeEvent *const time =
-  //    static_cast<FrTimeEvent *>(pvTimerGetTimerID(xTimer));
-  // time->ao->Post(time);  // Hard fault here
-
+void FrTimer::TimerCallback(TimerHandle_t xTimer) {
   KFC::Active *const act =
       static_cast<KFC::Active *const>(pvTimerGetTimerID(xTimer));
-  act->Callback();
+  act->EventCallback();
 }

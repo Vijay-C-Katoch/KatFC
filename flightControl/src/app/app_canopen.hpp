@@ -1,6 +1,5 @@
 
 #include "ao_freertos.hpp"
-#include "app_active.hpp"
 
 class CanOpenAO : public FrActive {
  public:
@@ -9,10 +8,10 @@ class CanOpenAO : public FrActive {
 
   virtual void Dispatch(KFC::Event const *const e) override;
 
-  virtual void Callback() override;
+  virtual void EventCallback() override;
 
   void TestEventSend();
 
  private:
-  FrTimeEvent m_timeEvent;
+  FrTimer m_timer;
 };

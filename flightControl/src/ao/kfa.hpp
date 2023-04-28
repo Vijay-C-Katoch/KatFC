@@ -26,17 +26,14 @@ class Active {
  public:
   virtual void Dispatch(Event const* const e) = 0;
   virtual void Post(KFC::Event const* const e) = 0;
-  virtual void Callback() = 0;
+  virtual void EventCallback() = 0;
 };
 
-class TimerEvent : public Event {
+class Timer {
  public:
   virtual void Arm(std::uint32_t ms) = 0;
 
   virtual void Disarm() = 0;
-
- protected:
-  TimerEvent(Signal s) : Event(s){};
 };
 
 } /* namespace KFC */

@@ -7,6 +7,7 @@
 void CanOpenAO::Dispatch(KFC::Event const *const e) {
   switch (e->sig) {
     case AOSignals::SIG_INIT: {
+      m_timer.Arm(10);
       // TestEventSend();
       break;
     }
@@ -38,8 +39,9 @@ CanOpenAO::CanOpenAO(uint8_t taskPriority, void *taskStack,
                      uint32_t qLen, void *const parameters)
     : FrActive(taskPriority, taskStack, taskStackSize, qStorage, qLen,
                parameters),
-      m_timeEvent(AppSignals::CO_TIMER, this, PERIODIC) {
-  m_timeEvent.Arm(10);
-}
+      m_timer(this, PERIODIC) {}
 
-void CanOpenAO::Callback() { Post(&m_timeEvent); }
+void CanOpenAO::EventCallback() {
+  static KFC::Event coEvent{AppSignals::CO_TIMER};
+  Post(&coEvent);
+}

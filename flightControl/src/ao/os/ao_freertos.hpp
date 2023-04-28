@@ -55,15 +55,15 @@ class FrActive : public KFC::Active {
   StaticTask_t threadCB; /**< static allocated thread control block */
 };
 
-class FrTimeEvent : public KFC::TimerEvent {
+class FrTimer : public KFC::Timer {
  public:
-  FrTimeEvent(KFC::Signal s, KFC::Active *act, TimerType_t typ);
+  FrTimer(KFC::Active *act, TimerType_t typ);
 
   virtual void Arm(uint32_t ms) override;
 
   virtual void Disarm() override;
 
-  static void TimeEvent_callback(TimerHandle_t xTimer);
+  static void TimerCallback(TimerHandle_t xTimer);
 
  private:
   KFC::Active *ao;  /**< Associated Active object */
