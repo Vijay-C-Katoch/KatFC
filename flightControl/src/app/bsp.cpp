@@ -4,9 +4,7 @@
 #include "ao_freertos.hpp"
 
 extern "C" {
-#include "CO_app_STM32.h"
 #include "main.h"
-#include "tim.h"
 
 /* Function Prototype ======================================================*/
 void vApplicationIdleHook(void);
@@ -150,35 +148,6 @@ void SystemClock_Config(void) {
   if (HAL_RCC_ClockConfig(&RCC_ClkInitStruct, FLASH_LATENCY_2) != HAL_OK) {
     Error_Handler();
   }
-}
-
-/* USER CODE BEGIN 4 */
-
-/* USER CODE END 4 */
-
-/**
- * @brief  Period elapsed callback in non blocking mode
- * @note   This function is called  when TIM1 interrupt took place, inside
- * HAL_TIM_IRQHandler(). It makes a direct call to HAL_IncTick() to increment
- * a global variable "uwTick" used as application time base.
- * @param  htim : TIM handle
- * @retval None
- */
-
-void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim) {
-  /* USER CODE BEGIN Callback 0 */
-
-  /* USER CODE END Callback 0 */
-  if (htim->Instance == TIM3) {
-    HAL_IncTick();
-  }
-
-  /* USER CODE BEGIN Callback 1 */
-  // Handle CANOpen app interrupts
-  if (htim == &htim17) {
-    canopen_app_interrupt();
-  }
-  /* USER CODE END Callback 1 */
 }
 
 /**
