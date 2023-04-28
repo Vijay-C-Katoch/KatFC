@@ -1,5 +1,8 @@
 
 #include "ao_freertos.hpp"
+extern "C" {
+#include "CO_app_STM32.h"
+}
 
 class CanOpenAO : public FrActive {
  public:
@@ -10,8 +13,11 @@ class CanOpenAO : public FrActive {
 
   virtual void EventCallback() override;
 
+  // Test function
   void TestEventSend();
 
  private:
+  void InitCOStack();
   FrTimer m_timer;
+  CANopenNodeSTM32 m_canOpenNodeSTM32;
 };

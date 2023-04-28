@@ -2,8 +2,11 @@
 #include "bsp.hpp"
 
 #include "ao_freertos.hpp"
-#include "main.h"
+
 extern "C" {
+#include "CO_app_STM32.h"
+#include "main.h"
+#include "tim.h"
 
 /* Function Prototype ======================================================*/
 void vApplicationIdleHook(void);
@@ -161,7 +164,7 @@ void SystemClock_Config(void) {
  * @param  htim : TIM handle
  * @retval None
  */
-#if 0
+
 void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim) {
   /* USER CODE BEGIN Callback 0 */
 
@@ -169,14 +172,14 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim) {
   if (htim->Instance == TIM3) {
     HAL_IncTick();
   }
+
   /* USER CODE BEGIN Callback 1 */
   // Handle CANOpen app interrupts
-  if (htim == canopenNodeSTM32->timerHandle) {
+  if (htim == &htim17) {
     canopen_app_interrupt();
   }
   /* USER CODE END Callback 1 */
 }
-#endif  // if 0
 
 /**
  * @brief  This function is executed in case of error occurrence.

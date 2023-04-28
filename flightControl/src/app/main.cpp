@@ -15,29 +15,18 @@
  *
  ******************************************************************************
  */
-#define ENABLE_CANOPEN_DEMO 0
-#define ENABLE_FREE_RTOS 0
 /* USER CODE END Header */
 /* Includes ------------------------------------------------------------------*/
-#include "bsp.hpp"
-#if ENABLE_FREE_RTOS
-#include "cmsis_os.h"
-#endif  // ENABLE_FREE_RTOS
-#include "ao_freertos.hpp"
-#include "fdcan.h"
-#include "gpio.h"
-#include "tim.h"
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-#if ENABLE_CANOPEN_DEMO
-#include "CO_app_STM32.h"
-#endif  // ENABLE_CANOPEN_DEMO
-extern "C" {
-#include "app_freertos.h"
-}
-#include "app_active.hpp"
 #include "app_canopen.hpp"
+#include "bsp.hpp"
+extern "C" {
+#include "fdcan.h"
+#include "gpio.h"
+#include "tim.h"
+}
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -106,17 +95,6 @@ int main(void) {
   // Initialize the CANOpen Stack
 
   /* USER CODE END 2 */
-
-#if ENABLE_FREE_RTOS
-  /* Init scheduler */
-  osKernelInitialize(); /* Call init function for freertos objects (in
-                           freertos.c) */
-  MX_FREERTOS_Init();
-
-  /* Start scheduler */
-  osKernelStart();
-/* We should never get here as control is now taken by the scheduler */
-#endif /* ENABLE_FREE_RTOS */
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
 

@@ -64,7 +64,7 @@ TimerHandle_t timer;    /**< timer handle */
 FrTimer::FrTimer(KFC::Active *act, TimerType_t typ) : ao(act), type(typ) {
   /* Create a timer object */
   timer =
-      xTimerCreateStatic("TEv", 1U, type, this->ao, TimerCallback, &timer_cb);
+      xTimerCreateStatic("Tmr", 1U, type, this->ao, TimerCallback, &timer_cb);
   configASSERT(timer); /* timer must be created */
 }
 
