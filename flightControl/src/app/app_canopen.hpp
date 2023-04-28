@@ -9,6 +9,8 @@ class CanOpenAO : public FrActive {
 
   virtual void Dispatch(KFC::Event const *const e) override;
 
+  virtual void Callback() override;
+
   void TestEventSend();
 
  private:

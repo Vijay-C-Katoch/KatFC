@@ -64,8 +64,8 @@ TimerHandle_t timer;    /**< timer handle */
 FrTimeEvent::FrTimeEvent(KFC::Signal s, KFC::Active *act, TimerType_t typ)
     : KFC::TimerEvent(s), ao(act), type(typ) {
   /* Create a timer object */
-  timer =
-      xTimerCreateStatic("TEv", 1U, type, this, TimeEvent_callback, &timer_cb);
+  timer = xTimerCreateStatic("TEv", 1U, type, this->ao, TimeEvent_callback,
+                             &timer_cb);
   configASSERT(timer); /* timer must be created */
 }
 
@@ -111,7 +111,11 @@ void FrTimeEvent::Disarm() {
 /*..........................................................................*/
 
 void FrTimeEvent::TimeEvent_callback(TimerHandle_t xTimer) {
-  const FrTimeEvent *const time =
-      static_cast<FrTimeEvent *>(pvTimerGetTimerID(xTimer));
-  time->ao->Post(time);  // Hard fault here
+  // const FrTimeEvent *const time =
+  //    static_cast<FrTimeEvent *>(pvTimerGetTimerID(xTimer));
+  // time->ao->Post(time);  // Hard fault here
+
+  KFC::Active *const act =
+      static_cast<KFC::Active *const>(pvTimerGetTimerID(xTimer));
+  act->Callback();
 }

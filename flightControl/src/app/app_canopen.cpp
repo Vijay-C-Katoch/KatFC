@@ -41,3 +41,5 @@ CanOpenAO::CanOpenAO(uint8_t taskPriority, void *taskStack,
       m_timeEvent(AppSignals::CO_TIMER, this, PERIODIC) {
   m_timeEvent.Arm(10);
 }
+
+void CanOpenAO::Callback() { Post(&m_timeEvent); }
