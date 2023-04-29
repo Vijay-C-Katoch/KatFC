@@ -1,4 +1,7 @@
 
+/** @file bsp.hpp
+ * @brief STM32 BSP initialization
+ */
 #ifndef _BSP_HPP_
 #define _BSP_HPP_
 

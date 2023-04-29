@@ -2,8 +2,8 @@
  * @brief KatFC active Objects and state machine core includes.
  */
 
-#ifndef _KFA_CORE_H_
-#define _KFA_CORE_H_
+#ifndef _KFA_CORE_HPP_
+#define _KFA_CORE_HPP_
 
 /* c++ includes */
 #include <cstdint>
@@ -11,4 +11,4 @@
 /* KatFC includes*/
 #include "kfa.hpp"
 
-#endif  /* _KFA_CORE_H_ */
+#endif /* _KFA_CORE_HPP_ */
