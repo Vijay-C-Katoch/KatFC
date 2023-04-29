@@ -1,4 +1,6 @@
-
+/** @file ao_freertos.cpp
+ * @brief Implementation of interface for Active over FreeRTOS.
+ */
 
 #include "ao_freertos.hpp"
 
@@ -109,8 +111,6 @@ void FrTimer::Disarm() {
     configASSERT(status == pdPASS);
   }
 }
-
-/*..........................................................................*/
 
 void FrTimer::TimerCallback(TimerHandle_t xTimer) {
   KFC::Active *const act =

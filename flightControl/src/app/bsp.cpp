@@ -1,4 +1,6 @@
-
+/** @file bsp.cpp
+ * @brief STM32 BSP initialization and FreeRTOS hooks
+ */
 #include "bsp.hpp"
 
 #include "ao_freertos.hpp"

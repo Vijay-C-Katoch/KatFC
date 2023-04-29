@@ -5,6 +5,10 @@
 #ifndef _APP_ACTIVE_HPP_
 #define _APP_ACTIVE_HPP_
 
+/** @enum AppSignals
+ * \ingroup os
+ * @brief Application signals raised from Active Objects
+ */
 enum AppSignals {
   CO_TIMER = AOSignals::SIG_USR,
   MBX_TIMER,

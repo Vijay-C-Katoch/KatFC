@@ -2,8 +2,8 @@
  * @brief Active Object interface layer over FreeRTOS.
  */
 
-#ifndef _FREERTOS_AO_H_
-#define _FREERTOS_AO_H_
+#ifndef _AO_FREERTOS_HPP_
+#define _AO_FREERTOS_HPP_
 
 /* KatFC includes */
 #include "kfacore.hpp"
@@ -14,7 +14,7 @@
 #include "task.h"
 #include "timers.h"
 
-/** @defgroup os Active FreeRTOS
+/** @defgroup os OS Layer
  *  Active Object interface layer over FreeRTOS
  *  @{
  */
@@ -124,4 +124,4 @@ class FrTimer : public KFC::Timer {
 
 /** @} */  // end of group os
 
-#endif /* _FREERTOS_AO_H_ */
+#endif /* _AO_FREERTOS_HPP_ */
