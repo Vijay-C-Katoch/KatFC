@@ -45,4 +45,4 @@ Install [Google bloaty](https://github.com/google/bloaty).
 <br>    
   
 # License
-* https://github.com/Vijay-C-Katoch/KatFC/blob/main/LICENSE.md
+* https://github.com/Vijay-C-Katoch/KatFC/blob/main/LICENSE

@@ -57,9 +57,12 @@ void FrActive::PostFromISR(KFC::Event const *const e,
   configASSERT(status == pdTRUE);
 }
 
-// void FrActive::Dispatch(KFC::Event const *const e) { (void)e; }
-StaticTimer_t timer_cb; /**< static allocated timer control block */
-TimerHandle_t timer;    /**< timer handle */
+/*****************************************************************************/
+// FreeRTOS Timer
+/*****************************************************************************/
+
+StaticTimer_t FrTimer::timer_cb; /**< static allocated timer control block */
+TimerHandle_t FrTimer::timer;    /**< timer handle */
 
 FrTimer::FrTimer(KFC::Active *act, TimerType_t typ) : ao(act), type(typ) {
   /* Create a timer object */

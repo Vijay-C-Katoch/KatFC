@@ -6,7 +6,6 @@ set(SRC_APP
     ${CMAKE_CURRENT_SOURCE_DIR}/app/main.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/app/bsp.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/app/app_canopen.cpp
-    #${CMAKE_CURRENT_SOURCE_DIR}/app/app_freertos.c
 )
 
 set(SRC_AO
