@@ -1,8 +1,8 @@
 # KatFC1
 Hobby Flight Control software for motors run with KatBot.     
 
-***Note: This project is no longer under active development. Another version is     
-being developed for BeagleBone.     
+**Note**: *This project is no longer under active development. Another*      
+*version is being developed for BeagleBone.*     
 
 ## 1. Getting started
 Download and install latest toolchain from arm for target    
