@@ -1,4 +1,4 @@
-# KatFC1
+# KatFC
 Hobby Flight Control software for motors run with KatBot.     
 
 **Note**: *This project is no longer under active development. Another*      
@@ -11,7 +11,7 @@ Download and install latest toolchain from arm for target
 ## 2. Download and compile KatFC     
 Clone the source:     
      
-`git clone --recurse-submodules https://github.com/Vijay-C-Katoch/KatFC1.git`
+`git clone --recurse-submodules https://github.com/Vijay-C-Katoch/KatFC.git`
      
 This will clone the repository with submodules. If you already cloned the repository      
 without the `--recurse-submodules` flag then run below in the KatFCfolder to
@@ -48,4 +48,4 @@ Install [Google bloaty](https://github.com/google/bloaty).
 <br>    
   
 # License
-* https://github.com/Vijay-C-Katoch/KatFC1/blob/main/LICENSE
+* https://github.com/Vijay-C-Katoch/KatFC/blob/main/LICENSE
