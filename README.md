@@ -1,5 +1,5 @@
 # KatFC1
-Flight Control software for motors run with KatBot.
+Hobby Flight Control software for motors run with KatBot.
 
 ## 1. Getting started
 Download and install latest toolchain from arm for target    
