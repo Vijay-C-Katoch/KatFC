@@ -6,8 +6,10 @@ Hobby Flight Control software for motors run with KatBot.
 
 ## 1. Getting started
 Download and install latest toolchain from arm for target    
-`AArch32 bare-metal target (arm-none-eabi)`
-
+`AArch32 bare-metal target (arm-none-eabi)`     
+     
+Or else download latest *none-eabi* [Arm GNU toolchain](https://developer.arm.com/downloads/-/arm-gnu-toolchain-downloads) and symlink to /usr/bin     
+     
 ## 2. Download and compile KatFC     
 Clone the source:     
      
